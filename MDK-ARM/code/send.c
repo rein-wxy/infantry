@@ -338,19 +338,23 @@ void locked_task(void)
 	}
 }
 
-
+/*
+	speed:预期目标值
+	limit:限制速度15 18 30
+	将将系数映射到tan正负二分之Π之间
+*/
 
 float speed_offest(float speed,float limit)
 {
 	float a = (speed - limit),b;
 
 	if(a<=0.5 && a >=-0.5) 	 
-		b =tan( a*1.571) * a *20;
+		b =tan( a*1.571);	//pai/2
 	else if	(a>=0.5 )		 
-		b = tan(0.785)*0.5 *20;			//限制x防止弹速变化大
+		b = tan(0.785);			//限制x防止弹速变化大
 	else if	(a<=-0.5 ) 		 
-		b = tan(-0.785) * -0.5 *20;	
-	return b;
+		b = tan(-0.785) ;	
+	return b* 10;
 }
 
 
