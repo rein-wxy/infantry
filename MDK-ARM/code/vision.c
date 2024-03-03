@@ -33,7 +33,7 @@ void vision_Init(void)
 void vision_task(void)
 {
 	send_data_to_nuc();
-	vision_data_manage();
+	//vision_data_manage();
 	Vision_on_off();
 	
 }
@@ -125,7 +125,53 @@ void vision_data_manage(void)
 	}
 }
 
+/*
+	改进队列触发方式版
+*/
+void vision_data_hand(void)
+{
+	memcpy(&varible_vision.vision_yaw_up,&varible_vision.Vision_rx[3],4);
+	memcpy(&varible_vision.vision_pitch_up,&varible_vision.Vision_rx[7],4);
+	memcpy(&varible_vision.vision_distance_up,&varible_vision.Vision_rx[11],4);
+	memcpy(&varible_vision.reverse_top,&varible_vision.Vision_rx[15],1);
+	memcpy(&varible_vision.send_or,&varible_vision.Vision_rx[16],1);
+	
+	if((varible_vision.vision_distance_up != 0 ||varible_vision.vision_pitch_up != 0 || varible_vision.vision_yaw_up != 0) )			
+	{	
+			varible_vision.aim_flag = true;		
+	}
+	else
+	{
+		varible_vision.aim_flag = false;
+		varible_vision.vision_distance_up = 0;
+		varible_vision.vision_pitch_up = 0;
+		varible_vision.vision_yaw_up = 0;
+	}
+	
+	varible_vision.vision_pitch_err = varible_vision.vision_pitch_up ;
+	varible_vision.vision_yaw_err = varible_vision.vision_yaw_up ;
+	varible_vision.vision_distance = varible_vision.vision_distance_up*0.01f;
 
+		
+	//卡尔曼
+	varible_vision.vision_yaw_kf = KalmanFilter(&kalman_visionYaw,varible_vision.vision_yaw_err);
+	varible_vision.vision_pitch_kf = KalmanFilter(&kalman_visionPitch,varible_vision.vision_pitch_err);	
+	varible_vision.vision_distance_kf = KalmanFilter(&kalman_visionDistance,varible_vision.vision_distance);	
+		
+			
+	if(varible_vision.aim_flag == true && monitor.nuc_monitor &&task_flag.automatic_aiming )  //要测试
+	{
+		varible_vision.vision_pitch_out = varible_vision.vision_pitch_up * 22.755; //+ varible_vision.dt_m;
+		varible_vision.vision_yaw_out = varible_vision.vision_yaw_up * 22.755f;
+	}
+	else 
+	{
+		varible_vision.vision_pitch_out = 0;
+		varible_vision.vision_yaw_out = 0;
+	}			
+		
+		
+}
 
 
 /*开火补偿*/
@@ -197,6 +243,7 @@ uint8_t l = 0;    //串位强制拉回位置
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
+	
 	if(huart->Instance == USART1)	//暂时<-------->
 	{	
 		for(uint8_t i = 0;i < Vision_SIZE;i++)
@@ -262,7 +309,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 		
 	}
 */	
-	
+	int32_t lValueToSend;
+	lValueToSend = ( int32_t ) huart;
+
+	xQueueSendToBackFromISR(xQueueVision,&lValueToSend,0);
 	HAL_UART_Receive_DMA(&huart1,varible_vision.Dislocatoon,18);
 }
 

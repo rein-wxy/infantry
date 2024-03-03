@@ -37,6 +37,8 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 int nuumb = 0;
+/* 队列句柄, 创建队列 */
+QueueHandle_t xQueueVision;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -84,6 +86,8 @@ void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackTy
 }
 /* USER CODE END GET_IDLE_TASK_MEMORY */
 
+
+
 /* USER CODE BEGIN GET_TIMER_TASK_MEMORY */
 static StaticTask_t xTimerTaskTCBBuffer;
 static StackType_t xTimerStack[configTIMER_TASK_STACK_DEPTH];
@@ -105,6 +109,7 @@ void vApplicationGetTimerTaskMemory( StaticTask_t **ppxTimerTaskTCBBuffer, Stack
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
 
+    xQueueVision = xQueueCreate( 10, sizeof( int32_t ) );//创建队列
   /* USER CODE END Init */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -141,6 +146,8 @@ void MX_FREERTOS_Init(void) {
   myTask04Handle = osThreadCreate(osThread(myTask04), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
+  
+  
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
@@ -160,6 +167,9 @@ void StartDefaultTask(void const * argument)
   for(;;)
   {
 	  imu_sensor_update(&imu);
+	  imu_all_task();
+	  key_all_task();
+	  
     osDelay(1);
   }
   /* USER CODE END StartDefaultTask */
@@ -196,13 +206,13 @@ void StartTask02(void const * argument)
 /* USER CODE END Header_StartTask03 */
 void StartTask03(void const * argument)
 {
+	int8_t lReceivedValue;
   /* USER CODE BEGIN StartTask03 */
   /* Infinite loop */
   for(;;)
   {
-	 imu_all_task();
-	  key_all_task();
-	   
+	 xQueueReceive( xQueueVision, &lReceivedValue, portMAX_DELAY );//一直阻塞直到有数据
+	 vision_data_hand();  
     osDelay(1);
   }
   /* USER CODE END StartTask03 */

@@ -2,6 +2,11 @@
 #define __VISION_H	 
 
 #include "chassis.h"
+#include "cmsis_os.h"
+#include "FreeRTOS.h"                   // ARM.FreeRTOS::RTOS:Core
+#include "task.h"                       // ARM.FreeRTOS::RTOS:Core
+#include "event_groups.h"               // ARM.FreeRTOS::RTOS:Event Groups
+#include "semphr.h"                     // ARM.FreeRTOS::RTOS:Core
 #include <stdbool.h>
 
 #define Vision_SIZE 18 //接收视觉数据长度
@@ -59,6 +64,7 @@ typedef struct
 
 extern vision_rx_t vision_rx;
 extern varible_vision_t varible_vision;
+extern QueueHandle_t xQueueVision;//队列
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
 void vision_Init(void);/*视觉任务初始化*/
@@ -69,6 +75,8 @@ void vision_task(void);/*视觉任务*/
 void send_data_to_nuc(void);
 /*视觉信息处理*/
 void vision_data_manage(void);
+void vision_data_hand(void);
+
 /*距离补偿*/
 void vision_compensate(float distance);
 
