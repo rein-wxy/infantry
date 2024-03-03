@@ -74,6 +74,7 @@ infantry_v2\referee.o: code\all_task.h
 infantry_v2\referee.o: code\bsp_usart.h
 infantry_v2\referee.o: code\gimbal.h
 infantry_v2\referee.o: code\vision.h
+infantry_v2\referee.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 infantry_v2\referee.o: D:\keli MDK\1\ARM\ARMCC\Bin\..\include\stdbool.h
 infantry_v2\referee.o: code\ui.h
 infantry_v2\referee.o: code\monitor.h

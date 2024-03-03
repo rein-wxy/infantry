@@ -70,6 +70,7 @@ infantry_v2\key_task.o: code\bsp_usart.h
 infantry_v2\key_task.o: code\gimbal.h
 infantry_v2\key_task.o: code\kalman.h
 infantry_v2\key_task.o: code\vision.h
+infantry_v2\key_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 infantry_v2\key_task.o: D:\keli MDK\1\ARM\ARMCC\Bin\..\include\stdbool.h
 infantry_v2\key_task.o: code\imu.h
 infantry_v2\key_task.o: ../Core/Inc/spi.h

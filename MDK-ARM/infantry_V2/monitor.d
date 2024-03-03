@@ -76,5 +76,6 @@ infantry_v2\monitor.o: D:\keli MDK\1\ARM\ARMCC\Bin\..\include\string.h
 infantry_v2\monitor.o: code\bsp_usart.h
 infantry_v2\monitor.o: code\gimbal.h
 infantry_v2\monitor.o: code\vision.h
+infantry_v2\monitor.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 infantry_v2\monitor.o: code\ui.h
 infantry_v2\monitor.o: code\monitor.h

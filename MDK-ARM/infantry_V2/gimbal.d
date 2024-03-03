@@ -70,6 +70,7 @@ infantry_v2\gimbal.o: code\bsp_can.h
 infantry_v2\gimbal.o: code\bsp_usart.h
 infantry_v2\gimbal.o: code\gimbal.h
 infantry_v2\gimbal.o: code\vision.h
+infantry_v2\gimbal.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 infantry_v2\gimbal.o: code\ui.h
 infantry_v2\gimbal.o: code\referee.h
 infantry_v2\gimbal.o: code\imu.h

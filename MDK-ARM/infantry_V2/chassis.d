@@ -70,6 +70,7 @@ infantry_v2\chassis.o: code\bsp_usart.h
 infantry_v2\chassis.o: code\gimbal.h
 infantry_v2\chassis.o: code\kalman.h
 infantry_v2\chassis.o: code\vision.h
+infantry_v2\chassis.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 infantry_v2\chassis.o: code\imu.h
 infantry_v2\chassis.o: ../Core/Inc/spi.h
 infantry_v2\chassis.o: code\BMI.h

@@ -27,7 +27,29 @@ Project File Date:  08/01/2023
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\keli MDK\1\ARM\ARMCC\Bin'
 Build target 'infantry_V2'
-"infantry_V2\infantry_V2.axf" - 0 Error(s), 0 Warning(s).
+compiling freertos.c...
+compiling vision.c...
+code\vision.c(102): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  			varible_vision.vision_pitch_out = varible_vision.vision_pitch_up * 22.755; //+ varible_vision.dt_m;
+code\vision.c(164): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  		varible_vision.vision_pitch_out = varible_vision.vision_pitch_up * 22.755; //+ varible_vision.dt_m;
+code\vision.c(190): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      		varible_vision.dt_m = 2.05 * distance *distance -14.5 * distance + 39.5;
+code\vision.c(190): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      		varible_vision.dt_m = 2.05 * distance *distance -14.5 * distance + 39.5;
+code\vision.c(193): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  			varible_vision.dt_m = 3.3 * distance *distance +6.69 * distance - 0;
+code\vision.c(193): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  			varible_vision.dt_m = 3.3 * distance *distance +6.69 * distance - 0;
+code\vision.c(196): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      		varible_vision.dt_m = 3.3 * distance *distance +6.69 * distance + 20;
+code\vision.c(196): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      		varible_vision.dt_m = 3.3 * distance *distance +6.69 * distance + 20;
+code\vision.c: 8 warnings, 0 errors
+linking...
+Program Size: Code=62612 RO-data=1860 RW-data=500 ZI-data=26796  
+FromELF: creating hex file...
+"infantry_V2\infantry_V2.axf" - 0 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -50,7 +72,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.6.0
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

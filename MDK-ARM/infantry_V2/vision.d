@@ -79,3 +79,4 @@ infantry_v2\vision.o: code\referee.h
 infantry_v2\vision.o: code\monitor.h
 infantry_v2\vision.o: code\all_task.h
 infantry_v2\vision.o: code\chassis_t.h
+infantry_v2\vision.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h

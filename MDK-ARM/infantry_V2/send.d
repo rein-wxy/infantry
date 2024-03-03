@@ -70,6 +70,7 @@ infantry_v2\send.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_gro
 infantry_v2\send.o: code\gimbal.h
 infantry_v2\send.o: code\kalman.h
 infantry_v2\send.o: code\vision.h
+infantry_v2\send.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 infantry_v2\send.o: code\imu.h
 infantry_v2\send.o: ../Core/Inc/spi.h
 infantry_v2\send.o: code\BMI.h

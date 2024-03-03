@@ -75,5 +75,6 @@ infantry_v2\all_task.o: D:\keli MDK\1\ARM\ARMCC\Bin\..\include\string.h
 infantry_v2\all_task.o: code\bsp_usart.h
 infantry_v2\all_task.o: code\gimbal.h
 infantry_v2\all_task.o: code\vision.h
+infantry_v2\all_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 infantry_v2\all_task.o: code\ui.h
 infantry_v2\all_task.o: code\monitor.h

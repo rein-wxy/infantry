@@ -57,14 +57,6 @@ infantry_v2\function_lib.o: code\bsp_usart.h
 infantry_v2\function_lib.o: code\gimbal.h
 infantry_v2\function_lib.o: code\kalman.h
 infantry_v2\function_lib.o: code\vision.h
-infantry_v2\function_lib.o: code\imu.h
-infantry_v2\function_lib.o: ../Core/Inc/spi.h
-infantry_v2\function_lib.o: code\BMI.h
-infantry_v2\function_lib.o: code\ui.h
-infantry_v2\function_lib.o: code\referee.h
-infantry_v2\function_lib.o: code\monitor.h
-infantry_v2\function_lib.o: code\all_task.h
-infantry_v2\function_lib.o: code\chassis_t.h
 infantry_v2\function_lib.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 infantry_v2\function_lib.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 infantry_v2\function_lib.o: ../Core/Inc/FreeRTOSConfig.h
@@ -79,3 +71,12 @@ infantry_v2\function_lib.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/t
 infantry_v2\function_lib.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 infantry_v2\function_lib.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 infantry_v2\function_lib.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
+infantry_v2\function_lib.o: code\imu.h
+infantry_v2\function_lib.o: ../Core/Inc/spi.h
+infantry_v2\function_lib.o: code\BMI.h
+infantry_v2\function_lib.o: code\ui.h
+infantry_v2\function_lib.o: code\referee.h
+infantry_v2\function_lib.o: code\monitor.h
+infantry_v2\function_lib.o: code\all_task.h
+infantry_v2\function_lib.o: code\chassis_t.h
+infantry_v2\function_lib.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h

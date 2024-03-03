@@ -29,7 +29,7 @@ float speed_offest(float speed,float limit)
 		b = tan(0.785);			//限制x防止弹速变化大
 	else if	(a<=-0.5 )    
 		b = tan(-0.785) ; 
-	return b* 10;
+	return b * 10;
 }
 ~~~
 

@@ -71,6 +71,7 @@ infantry_v2\imu.o: code\bsp_usart.h
 infantry_v2\imu.o: code\gimbal.h
 infantry_v2\imu.o: code\kalman.h
 infantry_v2\imu.o: code\vision.h
+infantry_v2\imu.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 infantry_v2\imu.o: code\imu.h
 infantry_v2\imu.o: code\ui.h
 infantry_v2\imu.o: code\referee.h

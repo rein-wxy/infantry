@@ -70,6 +70,7 @@ infantry_v2\referee_limit.o: code\bsp_usart.h
 infantry_v2\referee_limit.o: ../Core/Inc/usart.h
 infantry_v2\referee_limit.o: code\gimbal.h
 infantry_v2\referee_limit.o: code\vision.h
+infantry_v2\referee_limit.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 infantry_v2\referee_limit.o: code\ui.h
 infantry_v2\referee_limit.o: code\referee.h
 infantry_v2\referee_limit.o: D:\keli MDK\1\ARM\ARMCC\Bin\..\include\string.h
